@@ -12,3 +12,8 @@ class Player:
     
   def displayCard():
     print(self.hand) #Can be modified to a func if gui is added
+
+  def penalty(penaltyType):
+    pass #This part of game logic must be described by the distributor and applied by individual player
+
+  

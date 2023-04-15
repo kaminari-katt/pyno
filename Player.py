@@ -23,5 +23,5 @@ class Player:
 
 #Creation of human players
   for j in range(1,numberOfHumans):
-    player[j-1]=Player(j,True,players[j-1])
+    _playerList[j-1]=Player(j,True,players[j-1])
   

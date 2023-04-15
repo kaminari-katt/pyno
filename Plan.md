@@ -7,3 +7,6 @@ you expected something here, but found nothing, lol, you idiot.
    
    
 Le add anything else that u need to this list....
+
+Unresolved Request:
+-Le add a variable 'numberOfHumans' to indicate the number of human players.

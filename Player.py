@@ -2,7 +2,6 @@
 
 import gameLogic as gL
 
-
 #Characteristics of a playable character
 
 class Player:
@@ -21,9 +20,5 @@ class Player:
   def penalty(self,penaltyType):
     pass #This part of game logic must be described by the distributor and applied by individual player
 
-#Creation of human players 
-i=1
+#Creation of human players
 listOfPlayers = [Player(i,True,gL.players[i]) for i in range(gL.numberOfHumanPlayers)]
-
-#print('Hand is', listOfPlayers[1].hand)
-listOfPlayers[1].displayHand()

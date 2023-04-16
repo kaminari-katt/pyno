@@ -3,7 +3,7 @@
 
 import random
 
-
+numberOfHumanPlayers = 4
 
 # --- DATA ---
 zeroes = 4
@@ -24,8 +24,8 @@ wildCards = 4 # no colors
 # --- DATA ---
 
 # card types, double entries are for 8 cards, 4 cadds for each color two times is 8 cards.
-cardTypes = ["Zero", "One", "One", "Two", "Two", "Three", "Three", "Four", "Four", "Five", "Five", "Six", "Six", "Seven", "Seven", "Eight", "Eight", "Nine", "Nine", "Skip", "Skip", "Reverse", "Reverse", "PlusTwo", "PlusTwo", "PlusFour", "WildCard"]
-colors = ["red", "yellow", "blue", "green"]
+cardTypes = ["0", "1", "1", "2", "2", "3","3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "Skip", "Skip", "Reverse", "Reverse", "+2", "+2", "+4", "W"]
+colors = ["R", "Y", "B", "G"]
 
 # cards in each players hand
 playerOneHand = []

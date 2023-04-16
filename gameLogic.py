@@ -1,4 +1,4 @@
-# main Game Logoc
+# main Game Logic
 
 
 import random

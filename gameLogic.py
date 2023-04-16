@@ -3,8 +3,6 @@
 
 import random
 
-numberOfHumanPlayers = 4
-
 # --- DATA ---
 zeroes = 4
 ones = 8
@@ -23,9 +21,11 @@ plusFours = 4 # no colors
 wildCards = 4 # no colors
 # --- DATA ---
 
-# card types, double entries are for 8 cards, 4 cadds for each color two times is 8 cards.
+# card code tokens
 cardTypes = ["0", "1", "1", "2", "2", "3","3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "Skip", "Skip", "Reverse", "Reverse", "+2", "+2", "+4", "W"]
 colors = ["R", "Y", "B", "G"]
+
+numberOfHumanPlayers = 4
 
 # cards in each players hand
 playerOneHand = []
@@ -44,9 +44,6 @@ def gameShuffle():
             cards.append(f"{color}{cardType}")
     random.shuffle(cards)        
 
-gameShuffle()
-print(cards)
-
 # serve 7 cards for each player one by one
 def distribute():
     for i in range(0,7):
@@ -54,7 +51,50 @@ def distribute():
             player.append(cards[0])
             cards.remove(cards[0])
 
-# gameShuffle()
+# method to translate card codes into strings that is readable
+def translate(cardCode):
+    if cardCode.startswith("R"):
+        color = "Red "
+    if cardCode.startswith("Y"):
+        color = "Yellow "
+    if cardCode.startwith("B"):
+        color = "Blue "
+    if cardCode.startswith("G"):
+        color = "Green "
+    if cardCode.endswith("1"):
+        cardValue = "One"
+    if cardCode.endswith("2"):
+        cardValue = "Two"
+    if cardCode.endswith("3"):
+        cardValue = "Three"
+    if cardCode.endswith("4"):
+        cardValue = "Four"
+    if cardCode.endswith("5"):
+        cardValue = "Five"
+    if cardCode.endswith("6"):
+        cardValue = "Six"
+    if cardCode.endswith("7"):
+        cardValue = "Seven"
+    if cardCode.endswith("8"):
+        cardValue = "Eight"
+    if cardCode.endswith("9"):
+        cardValue = "Nine"
+    if cardCode.endswith("Skip"):
+        cardValue = "Skip"
+    if cardCode.endswith("Reverse"):
+        cardValue = "Reverse"
+    if cardCode.endswith("+2"):
+        cardValue = "Plus Two"
+    if cardCode.endswith("+4"):
+        cardValue = "Plus Four"
+        color = ""
+    if cardCode.endswith("W"):
+        cardValue = "Wild"
+        color = ""
+        
+    cardName = str(str(color) + str(cardValue) + " Card")
+    return cardName
+
+gameShuffle()
 distribute()
-# print(cards)
-print(players)
+

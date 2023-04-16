@@ -1,6 +1,6 @@
 # Code for both human and bot players
 
-import gameLogic as gL
+import gameLogic
 
 #Characteristics of a playable character
 
@@ -16,9 +16,9 @@ class Player:
     
   def displayHand(self):
     print(self.hand) #Can be modified to a func if gui is added
-
+    
   def penalty(self,penaltyType):
     pass #This part of game logic must be described by the distributor and applied by individual player
 
 #Creation of human players
-listOfPlayers = [Player(i,True,gL.players[i]) for i in range(gL.numberOfHumanPlayers)]
+listOfPlayers = [Player(i,True,gameLogic.players[i]) for i in range(gameLogic.numberOfHumanPlayers)]

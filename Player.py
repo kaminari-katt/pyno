@@ -13,12 +13,22 @@ class Player:
   def playCard(self,indexOfCard):
     card = self.hand[indexOfCard] #The card (string) played
     self.hand.remove(card)
+    return card
     
   def displayHand(self):
-    print(self.hand) #Can be modified to a func if gui is added
+    return self.hand #Can be modified to a func if gui is added
     
   def penalty(self,penaltyType):
-    pass #This part of game logic must be described by the distributor and applied by individual player
+  #Le I think this whole method should be implemented on gameLogic file because removit card from deck should not be a work of player....
+    if penaltyType == "+2":
+      for t in range(0,1):
+        self.hand.append(gameLogic.cards[0])
+        gameLogic.cards.remove(cards[0])
+       
+    if penaltyType == "+4":
+      for t in range(0,3):
+        self.hand.append(gameLogic.cards[0])
+        gameLogic.cards.remove(cards[0])
 
 #Creation of human players
 listOfPlayers = [Player(i,True,gameLogic.players[i]) for i in range(gameLogic.numberOfHumanPlayers)]

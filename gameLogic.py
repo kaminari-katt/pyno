@@ -15,22 +15,18 @@ class Player:
     
   def displayHand(self):
     return self.hand #Can be modified to a func if gui is added
-    
-  def penalty(self,penaltyType):
-  #Le I think this whole method should be implemented on gameLogic file because removit card from deck should not be a work of player....
-    if penaltyType == "+2":
-      for t in range(1,2):
-       _player.self.hand.append(deckCards[0])
+
+  def drawCard(self,noOfCards):
+    for t in range(1,noOfCards):
+       self.hand.append(deckCards[0])
        deckCards.remove(deckCards[0])
-       
-    if penaltyType == "+4":
-      for t in range(1,4):
-        self.hand.append(deckCards[0])
-        deckCards.remove(deckCards[0])
 
 #Creation of human players
 listOfPlayers = [Player(i,True,players[i]) for i in range(numberOfHumanPlayers)]
-#--------------–--------------------+----
+
+
+#--------------–-------------------------
+
 
 # main Game Logic
 
@@ -82,13 +78,8 @@ def distribute():
     for i in range(0,7):
         for player in players:
             player.append(cards[0])
-            deckCards.remove(cards[0])
+            deckCards.remove(cards[0]
 
-# Helps everyone to take any number of cards from deck easily
-def takeCard(_player,numberOfCard):
-  pass
-# This function collides with the established penalty() method of class...
-  
 # method to translate card codes into strings that is readable
 def translate(cardCode):
     if cardCode.startswith("R"):
@@ -132,6 +123,13 @@ def translate(cardCode):
         
     cardName = str(str(color) + str(cardValue) + " Card")
     return cardName
+
+def penalty(self,_player,penaltyType): # To be called when some player needs to draw a card
+  if penaltyType == "+2":
+    _player.drawCard(2)
+  
+  if penaltyType == "+4" or "W":
+    _player.drawCard(4)
 
 gameShuffle()
 distribute()

@@ -10,9 +10,6 @@ playerOneHand = []
 playerTwoHand = []
 playerThreeHand = []
 playerFourHand = []
-# list for code comfortability in looping
-players = [playerOneHand, playerTwoHand, playerThreeHand, playerFourHand]
-
 
 # --- DATA ---
 zeroes = 4
@@ -60,8 +57,11 @@ class Player:
        deckCards.remove(deckCards[0])
 
 #Creation of human players
-listOfPlayers = [Player(i,True,players[i]) for i in range(numberOfHumanPlayers)]
-
+playerOne = (1, True, playerOneHand)
+playerTwo = (2, True, playerTwoHand)
+playerThree = (3, True, playerThreeHand)
+playerFour = (4, True, playerFourHand)
+listOfPlayers = [playerOne, playerTwo, playerThree, playerFour]
 
 #--------------–-------------------------
 
@@ -76,8 +76,8 @@ def gameShuffle():
 # serve 7 cards for each player one by one
 def distribute():
     for i in range(0,7):
-        for player in players:
-            player.append(deckCards[0])
+        for player in listOfPlayers:
+            player.Hand.append(deckCards[0])
             deckCards.remove(deckCards[0])
 
 # method to translate card codes into strings that is readable
@@ -124,31 +124,22 @@ def translate(cardCode):
     cardName = str(str(color) + str(cardValue) + " Card")
     return cardName
 
-def penalty(_player,penaltyType): # To be called when some player needs to draw a card
+def penalty(player,penaltyType): # To be called when some player needs to draw a card
   if penaltyType == "+2":
-    _player.drawCard(2)
+    player.drawCard(2)
   
   if penaltyType == "+4" or "W":
-    _player.drawCard(4)
+    player.drawCard(4)
 
 gameShuffle()
+print("shuffling the deck ...")
 distribute()
+print("distributing the cards ...")
 
 # dummy gameLoop
 while True:
-  print('You are player1.....')
-  print('This is your hand of cards ',listOfPlayers[0].displayHand())
-  
-  print('1: play a card, 2: draw a card')
-  user = int(input())
-  
-  if user == 1:
-    print('Which card?')
-    d = int(input())
-    print('Card played: ',listOfPlayers[0].playCard(d-1))
-    
-  if user == 2:
-    print('You drew card')
+    break
+
 
 #Which card is player playing? = method playCard()
 #List of individual players? = listOfPlayers -> a list
